@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PLSP Entry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100px;
+      margin: 10px auto 20px;
+    }
+
+    .card p {
+      font-size: 20px;
+      color: #2db82d;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      background-color: #2db82d;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #218e21;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="https://plsp.edu.ph/wp-content/uploads/2022/03/PLSP-Logo-1.png" alt="PLSP Logo">
+    <p>Select User Type</p>
+    <div class="button-container">
+      <a href="admin/" class="btn">Admin Page</a>
+      <a href="student_visitor/" class="btn">Student / Visitor</a>
+    </div>
+  </div>
+
+</body>
+</html>
