@@ -18,12 +18,6 @@ $role = $_SESSION['role'];
   <!-- White Rounded Card -->
   <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-sm h-[90vh] flex flex-col items-center relative">
 
-    <!--  Back Button  -->
-    <a href="../index.html" class="absolute left-4 top-4 flex items-center space-x-2 text-[#2db82d] font-semibold hover:text-green-700 transition">
-      <i class="fas fa-arrow-left"></i>
-      <span>Back</span>
-    </a>
-
     <!-- Logo -->
     <img src="https://plsp.edu.ph/wp-content/uploads/2022/03/PLSP-Logo-1.png" alt="PLSP Logo" class="w-24 mt-12 mb-6">
 
