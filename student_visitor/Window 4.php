@@ -1,9 +1,13 @@
+<?php
+session_start();
+$window_number = 4; // Change to 4
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows Transaction</title>
+  <title>Window <?php echo $window_number; ?> Transaction</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -24,28 +28,36 @@
          alt="PLSP Logo"
          class="w-24 mt-10 mb-8">
 
-    <!-- Windows Label -->
+    <!-- Window Label -->
     <div class="text-sm font-bold text-white bg-[#2db82d] px-4 py-1 rounded-full mb-6">
-      Windows 4
+      Window <?php echo $window_number; ?>
     </div>
 
     <!-- Transaction Form -->
-    <div class="w-full flex flex-col gap-4 mb-6">
-      <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
-  <option disabled selected hidden>Select Transactions</option>
-  <option>Transaction 1</option>
-  <option>Transaction 2</option>
-</select>
+    <form action="receipt.php" method="POST" class="w-full flex flex-col gap-4 mb-6">
 
+      <select name="transaction_type" required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+        <option disabled selected hidden>Select Transactions</option>
+        <option value="TOR Printing">TOR Printing</option>
+        <option value="Recieving/Requested Documents">Recieving/Requested Documents</option>
+        <option value="Grades Evaluation">Grades Grades Evaluation</option>
+        <option value="Enrollment">Enrollment</option>
+      </select>
 
-      <input type="text" placeholder="Others / Please Specify"
+      <input type="text" name="others" placeholder="Others / Please Specify"
              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
-    </div>
 
-    <!-- Proceed Button -->
-    <button class="w-full bg-[#2db82d] hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition">
-      Proceed
-    </button>
+      <!-- Hidden values -->
+      <input type="hidden" name="office" value="<?php echo $_SESSION['office']; ?>">
+      <input type="hidden" name="window_number" value="<?php echo $window_number; ?>">
+
+      <!-- Proceed Button -->
+      <button type="submit"
+              class="w-full bg-[#2db82d] hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition">
+        Proceed
+      </button>
+    </form>
   </div>
 
 </body>

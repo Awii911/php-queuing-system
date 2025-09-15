@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Clear session data so no leftover info is shown
+// Clear old session data so no leftover info is shown
 session_unset();
 session_destroy();
 session_start();
@@ -31,27 +31,38 @@ session_start();
     </div>
 
     <!-- Form -->
-    <form action="process.php" method="POST" class="space-y-5">
+    <form action="student_process.php" method="POST" class="space-y-5">
       <div>
         <label class="text-sm font-semibold text-gray-700 block mb-1">Last Name</label>
-        <input type="text" name="last_name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="text" name="last_name" required value="<?php echo $_GET['last_name'] ?? ''; ?>"
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       <div>
         <label class="text-sm font-semibold text-gray-700 block mb-1">Student ID</label>
-        <input type="text" name="Student_ID" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="text" name="Student_ID" required value="<?php echo $_GET['Student_ID'] ?? ''; ?>"
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       <div>
         <label class="text-sm font-semibold text-gray-700 block mb-1">Email</label>
-        <input type="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="email" name="email" required value="<?php echo $_GET['email'] ?? ''; ?>"
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       <div>
         <label class="text-sm font-semibold text-gray-700 block mb-1">Number</label>
-        <input type="tel" name="number" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="tel" name="number" required value="<?php echo $_GET['number'] ?? ''; ?>"
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       
       <button type="submit" class="w-full bg-[#2db82d] text-white font-semibold py-2 rounded-lg hover:bg-green-600 transition">
         Proceed
       </button>
+
+      <!-- Error Message -->
+      <?php if (isset($_GET['error'])): ?>
+        <p class="text-xs text-red-600 mt-2 text-center">
+          <?php echo htmlspecialchars($_GET['error']); ?>
+        </p>
+      <?php endif; ?>
     </form>
   </div>
 

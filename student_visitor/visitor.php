@@ -11,7 +11,7 @@ session_start();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Entry</title>
+  <title>Visitor Entry</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -31,32 +31,44 @@ session_start();
     </div>
 
     <!-- Form -->
-    <form action="process.php" method="POST" class="w-full space-y-4 mt-2">
+    <form action="visitor_process.php" method="POST" class="w-full space-y-4 mt-2">
       <div>
         <label class="text-sm font-semibold text-gray-700">Last Name</label>
-        <input type="text" name="last_name" required class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="text" name="last_name" required value="<?php echo $_GET['last_name'] ?? ''; ?>"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       <div>
         <label class="text-sm font-semibold text-gray-700">First Name</label>
-        <input type="text" name="first_name" required class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="text" name="first_name" required value="<?php echo $_GET['first_name'] ?? ''; ?>"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       <div>
         <label class="text-sm font-semibold text-gray-700">Middle Initial</label>
-        <input type="text" name="middle_initial" class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="text" name="middle_initial" value="<?php echo $_GET['middle_initial'] ?? ''; ?>"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       <div>
         <label class="text-sm font-semibold text-gray-700">Email</label>
-        <input type="email" name="email" required class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="email" name="email" required value="<?php echo $_GET['email'] ?? ''; ?>"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
       <div>
         <label class="text-sm font-semibold text-gray-700">Number</label>
-        <input type="tel" name="number" required class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <input type="tel" name="number" required value="<?php echo $_GET['number'] ?? ''; ?>"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
       </div>
 
       <!-- Submit -->
       <button type="submit" class="w-full bg-[#2db82d] text-white font-semibold py-2 rounded-lg hover:bg-green-600 transition">
         Proceed
       </button>
+
+      <!-- Error Message (small, below button) -->
+      <?php if (isset($_GET['error'])): ?>
+        <p class="text-xs text-red-600 mt-2 text-center">
+          <?php echo htmlspecialchars($_GET['error']); ?>
+        </p>
+      <?php endif; ?>
     </form>
 
   </div>

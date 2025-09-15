@@ -13,7 +13,7 @@
   <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-sm relative min-h-[80vh] overflow-auto">
 
     <!-- Back Button (Left) -->
-    <a href="process.php" class="flex items-center space-x-2 text-[#2db82d] font-semibold hover:text-green-700 transition absolute top-4 left-4">
+    <a href="offices.php" class="flex items-center space-x-2 text-[#2db82d] font-semibold hover:text-green-700 transition absolute top-4 left-4">
       <i class="fas fa-arrow-left"></i>
       <span>Back</span>
     </a>
