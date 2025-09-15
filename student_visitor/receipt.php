@@ -15,7 +15,7 @@ if (!empty(trim($others))) {
 }
 
 // Database connection
-$conn = new mysqli("localhost", "root", "", "plsp_queuing_system");
+$conn = new mysqli("sql312.infinityfree.com", "if0_38998585", "Finch2323", "if0_38998585_queue_db");
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 // Get user info
@@ -95,7 +95,7 @@ $conn->close();
 
     <!-- Finish Button -->
     <div class="mt-6 flex justify-center">
-        <a href="index.php" class="bg-[#2db82d] hover:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold transition">
+        <a href="generate_queue.php" class="bg-[#2db82d] hover:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold transition">
             Finish
         </a>
     </div>

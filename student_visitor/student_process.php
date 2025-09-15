@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost","root","","plsp_queuing_system");
+$conn = new mysqli("sql312.infinityfree.com","if0_38998585","Finch2323","if0_38998585_queue_db");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
